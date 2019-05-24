@@ -54,7 +54,7 @@ UamaCompressUtils.compressWithRx(context, files, new UamaCompressUtils.Compresse
 ```
 
 #####2.1.UamaCompressUtils提供了四个压缩方法
-
+```
   UamaCompressUtils.compress(Context context,String path,final CompressedResult result)
   UamaCompressUtils.compress(Context context,List<String> paths,final CompressedResult result)
   UamaCompressUtils.compressWithUri(Context context,List<Uri> paths,final CompressedResult result)
