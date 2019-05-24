@@ -14,21 +14,68 @@
 compile 'com.uama.utils:image-compress:1.0.4'
 
 ```
-### 2.用法：
-  1.图片压缩  
- 根据原图路径获取压缩后的图片File
+### 2.压缩用法：
 ```
-File imgFile = ImageCompressFactory.getNewFile(context,originFilePath);
-```
- 得到imgFile 为压缩后的图片文件
+UamaCompressUtils.compress(context, path, new UamaCompressUtils.CompressedResult() {
+            @Override
+            public void onResultPath(String path) {}
+            @Override
+            public void onResultPaths(List<String> paths) {}
+            @Override
+            public void onResultError() {}
+        });
 
- 2.获取压缩图片的缓存目录
+UamaCompressUtils.compress(context, paths, new UamaCompressUtils.CompressedResult() {
+            @Override
+            public void onResultPath(String path) {}
+            @Override
+            public void onResultPaths(List<String> paths) {}
+            @Override
+            public void onResultError() {}
+        });
+
+UamaCompressUtils.compressWithUri(context, uris, new UamaCompressUtils.CompressedResult() {
+            @Override
+            public void onResultPath(String path) {}
+            @Override
+            public void onResultPaths(List<String> paths) {}
+            @Override
+            public void onResultError() {}
+        });
+
+UamaCompressUtils.compressWithRx(context, files, new UamaCompressUtils.CompressedResult() {
+            @Override
+            public void onResultPath(String path) {}
+            @Override
+            public void onResultPaths(List<String> paths) {}
+            @Override
+            public void onResultError() {}
+        });
 ```
- ImageCompressFactory.getCompressCacheDir(context)
+
+#####2.1.UamaCompressUtils提供了四个压缩方法
+
+  UamaCompressUtils.compress(Context context,String path,final CompressedResult result)
+  UamaCompressUtils.compress(Context context,List<String> paths,final CompressedResult result)
+  UamaCompressUtils.compressWithUri(Context context,List<Uri> paths,final CompressedResult result)
+  UamaCompressUtils.compressWithRx(final Context context,final List<T> photos,final CompressedResult result)
+  compressWithRx方法T可以传File和Uri
+```
+#####2.2CompressedResult是压缩方法的回调接口
+
+```
+  public interface CompressedResult{
+         void onResultPath(String path);
+         void onResultPaths(List<String> paths);
+         void onResultError();
+     }
  ```
-4.删除所有缓存文件
+ #####单张压缩回调onResultPath方法，多张压缩回调onResultPaths方法，压缩失败回调onResultError方法
+
+
+### 3.删除所有压缩生成的缓存文件
  ```
- ImageCompressFactory.clearCacheFiles(context);
+ UamaCompressUtils.clearCacheFiles(context);
  ```
 
 

@@ -91,8 +91,6 @@ public class UamaCompressUtils {
                             }
                             result.onResultPaths(paths);
                         }
-
-
                     }
                 }));
     }
@@ -103,4 +101,24 @@ public class UamaCompressUtils {
         void onResultPaths(List<String> paths);
         void onResultError();
     }
+
+
+    /**
+     *
+     * 获取缓存路径
+     * @param context
+     * @return
+     */
+    public static String getCompressCacheDir(Context context){
+        return context.getCacheDir().getPath()+File.separator+"compress_cache";
+    }
+
+    /**
+     * 删除压缩图片
+     * @param context
+     */
+    public static void clearCacheFiles(Context context){
+        ImageCompressUtils.cleanCustomCache(getCompressCacheDir(context));
+    }
+
 }

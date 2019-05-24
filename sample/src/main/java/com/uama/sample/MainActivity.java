@@ -1,5 +1,6 @@
 package com.uama.sample;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import uama.com.image.compress.UamaCompressUtils;
 public class MainActivity extends AppCompatActivity {
     ImageView img1,img2,img3;
     TextView show;
+    Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
         show = findViewById(R.id.show);
+        context = this;
 
 
         List<Uri> uris = assetsToUri();
@@ -51,27 +54,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        UamaCompressUtils.compressWithUri(MainActivity.this, uris, new UamaCompressUtils.CompressedResult() {
+        UamaCompressUtils.compressWithUri(context, uris, new UamaCompressUtils.CompressedResult() {
             @Override
-            public void onResultPath(String path) {
-
-            }
-
+            public void onResultPath(String path) {}
             @Override
-            public void onResultPaths(List<String> paths) {
-                for (int i=0;i<paths.size();i++){
-                    File file = new File(paths.get(i));
-                    sb.append("img_"+i+" new is"+file.length()/1024 +"k"+"\n");
-                }
-
-                show.setText(sb.toString());
-            }
-
+            public void onResultPaths(List<String> paths) {}
             @Override
-            public void onResultError() {
-
-            }
+            public void onResultError() {}
         });
+
 
     }
 
