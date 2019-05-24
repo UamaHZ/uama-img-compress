@@ -70,7 +70,7 @@ UamaCompressUtils.compressWithRx(context, files, new UamaCompressUtils.Compresse
          void onResultError();
      }
  ```
- ####单张压缩回调onResultPath方法，多张压缩回调onResultPaths方法，压缩失败回调onResultError方法
+#### 单张压缩回调onResultPath方法，多张压缩回调onResultPaths方法，压缩失败回调onResultError方法
 
 
 ### 3.删除所有压缩生成的缓存文件
