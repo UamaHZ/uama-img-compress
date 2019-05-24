@@ -53,7 +53,7 @@ UamaCompressUtils.compressWithRx(context, files, new UamaCompressUtils.Compresse
         });
 ```
 
-####2.1.UamaCompressUtils提供了四个压缩方法
+#### 2.1.UamaCompressUtils提供了四个压缩方法
 ```
   UamaCompressUtils.compress(Context context,String path,final CompressedResult result)
   UamaCompressUtils.compress(Context context,List<String> paths,final CompressedResult result)
@@ -61,7 +61,7 @@ UamaCompressUtils.compressWithRx(context, files, new UamaCompressUtils.Compresse
   UamaCompressUtils.compressWithRx(final Context context,final List<T> photos,final CompressedResult result)
   compressWithRx方法T可以传File和Uri
 ```
-####2.2CompressedResult是压缩方法的回调接口
+#### 2.2CompressedResult是压缩方法的回调接口
 
 ```
   public interface CompressedResult{
